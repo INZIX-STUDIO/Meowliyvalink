@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>BLEND STARS ✨ | عالم السحر الوردي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --main-pink: #ff3f8e;
+            --neon-pink: #ff1a6a;
+            --magic-glow: rgba(255, 192, 203, 0.4);
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff9acd, #ff6b9d);
+            font-family: 'Cairo', sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* إطار الصورة السحري */
+        .magic-frame {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            margin: 40px 0;
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .magic-frame::before {
+            content: '';
+            position: absolute;
+            inset: -15px;
+            background: linear-gradient(45deg, var(--neon-pink), #ff94c2, var(--main-pink));
+            border-radius: 50%;
+            z-index: -1;
+            animation: rotate 8s linear infinite;
+            filter: blur(20px);
+        }
+
+        .magic-frame img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid white;
+            box-shadow: 0 0 50px var(--magic-glow);
+        }
+
+        /* النص السحري */
+        .magic-text {
+            font-size: 3.5rem;
+            background: linear-gradient(45deg, #ffffff, #ffe5f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px var(--neon-pink);
+            margin: 20px 0;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        /* زر التحميل السحري */
+        .magic-button {
+            background: linear-gradient(45deg, var(--neon-pink), var(--main-pink));
+            color: white !important;
+            padding: 20px 60px;
+            border: none;
+            border-radius: 40px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s;
+            box-shadow: 0 0 40px var(--magic-glow);
+        }
+
+        .magic-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 60px var(--neon-pink);
+        }
+
+        /* أنيميشن الجسيمات */
+        .particles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* الأنيميشنات */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+        }
+
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.2); }
+        }
+
+        /* تأثير التحميل */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            display: none;
+            place-items: center;
+            z-index: 999;
+        }
+
+        .loader {
+            width: 80px;
+            height: 80px;
+            border: 8px solid var(--main-pink);
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="particles"></div>
+
+    <div class="magic-frame">
+        <img src="https://i.imgur.com/eYRj9mR.png" alt="Blend Stars">
+    </div>
+
+    <h1 class="magic-text">رابط تحميل مخصص لك يا MeowlyVA ✨</h1>
+
+    <button class="magic-button" onclick="startMagic()">
+        🐱 حملي التطبيق الآن  🐱
+    </button>
+
+    <div class="loading">
+        <div class="loader"></div>
+    </div>
+
+    <script>
+        function startMagic() {
+            // عرض شاشة التحميل
+            document.querySelector('.loading').style.display = 'grid';
+            
+            // تأثيرات الجسيمات
+            createParticles(50);
+            
+            // تحميل الملف بعد التأخير
+            setTimeout(() => {
+                window.location.href = 'https://e.top4top.io/f_W6Qpba_0TChR4ikHUpT9Kg/1742896952/3369hkvkv0.apk';
+            }, 3000);
+        }
+
+        function createParticles(count) {
+            const colors = ['#ff3f8e', '#ff94c2', '#ffffff'];
+            for(let i = 0; i < count; i++) {
+                const particle = document.createElement('div');
+                particle.style.cssText = `
+                    position: fixed;
+                    background: ${colors[Math.floor(Math.random() * colors.length)]};
+                    width: ${Math.random() * 10 + 5}px;
+                    height: ${Math.random() * 10 + 5}px;
+                    border-radius: 50%;
+                    animation: particle ${Math.random() * 1 + 0.5}s ease-out;
+                    left: ${Math.random() * 100}%;
+                    top: ${Math.random() * 100}%;
+                    filter: blur(2px);
+                `;
+                document.body.appendChild(particle);
+                setTimeout(() => particle.remove(), 1000);
+            }
+        }
+    </script>
+</body>
+</html>
